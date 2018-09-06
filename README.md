@@ -1,2 +1,2 @@
 # weibocnspider
-weibo.cn_spider with Scrapy
+weibo.cn Spider With Scrapy
