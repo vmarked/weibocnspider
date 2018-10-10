@@ -29,7 +29,7 @@ class WeibocnSpider(scrapy.Spider):
         :param response: Response对象
         :return:
         """
-        pass
+        self.logger.debug(response)
 
     def parse_follows(self, response):
         """
