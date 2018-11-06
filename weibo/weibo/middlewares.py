@@ -101,3 +101,13 @@ class WeiboDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class ProxyMiddleware():
+    # TODO 添加随机代理中间件, 采取随机代理 IP 访问, 同意 IP 请求过大时会出现 414 状态码
+    pass
+
+
+class CookiesMiddleware():
+    # TODO 添加随机Cookies中间件, 模拟登陆用户, 为每个 Request 添加随机的 Cookies
+    pass

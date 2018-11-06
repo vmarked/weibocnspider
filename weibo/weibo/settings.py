@@ -30,6 +30,7 @@ DEFAULT_REQUEST_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3534.4 Safari/537.36',
     'X-Requested-With': 'XMLHttpRequest',
 }
+
 # DEFAULT_REQUEST_HEADERS = {
 #     'Accept': 'application/json, text/plain, */*',
 #     'MWeibo-Pwa': '1',
@@ -70,7 +71,9 @@ DEFAULT_REQUEST_HEADERS = {
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   # 'weibo.middlewares.WeiboDownloaderMiddleware': 543,
+    # 'weibo.middlewares.WeiboDownloaderMiddleware': 543,
+    #  'weibo.middlewares.CookiesMiddleware': 554,
+    # 'weibo.middlewares.ProxyMiddleware': 555,
 }
 
 # Enable or disable extensions
@@ -82,7 +85,9 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   # 'weibo.pipelines.WeiboPipeline': 300,
+    'weibo.pipelines.TimePipeline': 300,
+    'weibo.pipelines.WeiboPipeline': 301,
+    # 'weibo.pipelines.MongoPipeline': 302,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -106,7 +111,11 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-# MONGO_URI = 'localhost'
-# MONGO_DATABASE = 'weibo'
+MONGO_URI = 'localhost'
+MONGO_DATABASE = 'weibo'
+
+# REDIS_URL = ''
+# COOKIES_URL = ''
+# PROXY_URL = ''
 
 RETRY_HTTP_CODES = [401, 403, 408, 414, 500, 502, 503, 504]
